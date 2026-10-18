@@ -1,0 +1,15 @@
+name: YetiOrb
+version: '${project.version}'
+main: ru.yeti.YetiPlugin
+api-version: '1.21'
+description: Шар YETI со способностью "Снежная глыба"
+commands:
+  yeti:
+    description: Управление шаром YETI
+    usage: /yeti <give [игрок]|reload>
+    permission: yeti.admin
+permissions:
+  yeti.admin:
+    default: op
+  yeti.use:
+    default: true

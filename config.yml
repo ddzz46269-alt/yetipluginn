@@ -1,0 +1,86 @@
+# ============================================================
+#  YetiOrb — настройки шара YETI
+#  Цвета: &a &b &c ... &l (жирный) &o (курсив) &r (сброс)
+#  После правок: /yeti reload
+# ============================================================
+
+item:
+  # Материал предмета (любой из Bukkit Material)
+  material: PRISMARINE_CRYSTALS
+  # CustomModelData для ресурспака (0 = выключено)
+  custom_model_data: 0
+  # Название предмета
+  name: "&b&l❄ Шар YETI ❄"
+
+  # ---------- LORE (описание) ----------
+  lore:
+    - ""
+    - "&7Древний артефакт ледяного великана."
+    - "&7Хранит в себе силу вечной мерзлоты."
+    - ""
+    - "&b&lСПОСОБНОСТЬ: &fСнежная глыба"
+    - "&7Держи шар во &fвторой руке &7и нажми"
+    - "&fSHIFT &7— огромная сосулька полетит"
+    - "&7в каждого врага в радиусе &f15 &7блоков."
+    - ""
+    - "&8Перезарядка: &f30 сек."
+
+  # В каком слоте должны работать атрибуты:
+  # OFFHAND, MAINHAND, HAND, HEAD, CHEST, LEGS, FEET, ARMOR, ANY
+  attribute_slot: OFFHAND
+
+  # Скрыть стандартные строки атрибутов (чтобы не дублировались с lore)
+  hide_attributes: true
+
+  # ---------- АТРИБУТЫ ----------
+  # Ключ — название атрибута (без "generic."):
+  #   armor, armor_toughness, attack_damage, attack_speed,
+  #   movement_speed, max_health, knockback_resistance, luck, attack_knockback
+  # operation: ADD_NUMBER | ADD_SCALAR | MULTIPLY_SCALAR_1
+  #   ADD_NUMBER      — просто прибавить число
+  #   ADD_SCALAR      — прибавить процент (0.1 = +10%)
+  # Чтобы убрать атрибут — удали или закомментируй блок.
+  attributes:
+    armor:
+      amount: 4.0
+      operation: ADD_NUMBER
+    armor_toughness:
+      amount: 2.0
+      operation: ADD_NUMBER
+    attack_damage:
+      amount: 3.0
+      operation: ADD_NUMBER
+    attack_speed:
+      amount: 0.5
+      operation: ADD_NUMBER
+    movement_speed:
+      amount: 0.1
+      operation: ADD_SCALAR
+    max_health:
+      amount: 4.0
+      operation: ADD_NUMBER
+
+# ---------- СПОСОБНОСТЬ "СНЕЖНАЯ ГЛЫБА" ----------
+ability:
+  name: "Снежная глыба"
+  radius: 15.0          # радиус действия в блоках
+  damage: 14.0          # урон (2.0 = 1 сердце), 14 = 7 сердец
+  cooldown_seconds: 30  # перезарядка
+  projectile_speed: 1.6 # скорость сосульки (блоков за тик)
+  icicle_length: 3.5    # длина сосульки
+  icicle_width: 0.7     # толщина сосульки
+  slowness_seconds: 4   # замедление после попадания (0 = выключено)
+  slowness_level: 2     # уровень замедления (1 = Slowness I)
+  freeze: true          # эффект заморозки (синий экран)
+  hit_creative: false   # бить игроков в креативе/спектаторе
+
+messages:
+  cast: "&b❄ &fТы активировал &b%ability%&f! Целей: &b%count%"
+  no_targets: "&cВ радиусе %radius% блоков нет целей."
+  cooldown: "&cСпособность перезаряжается: &f%seconds% сек."
+  hit: "&b❄ &fТебя поразила ледяная глыба от &b%player%&f!"
+  given: "&aТы получил Шар YETI."
+  given_other: "&aШар YETI выдан игроку %player%."
+  reloaded: "&aКонфиг перезагружен."
+  no_permission: "&cНет прав."
+  player_not_found: "&cИгрок не найден."
